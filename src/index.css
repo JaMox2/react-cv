@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;500;600;700;800;900&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +12,181 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.pageLoad{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.Cv{
+  max-width: 1000px;
+  outline: 1px dotted red;
+
+}
+
+.header{
+  padding: 1rem 2.5rem 0 2.5rem;
+  display: flex;
+
+}
+
+
+.img-container{
+  width: 300px;
+  height: 250px;
+  outline: 1px dotted red;
+  position: relative;
+  overflow: hidden;
+}
+.img-container img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  
+}
+.img-Hover{
+  /* display: none; */
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.493);
+  transition: opacity 0.1s ease-in;
+}
+.img-container:hover > .img-Hover{
+  /* display: flex; */
+  opacity: 1;
+}
+.img-Hover input{
+  display: none;
+}
+.img-Hover label{
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+.name-container{
+  /* outline: 1px dotted red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.name-container h1{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3.5rem;
+  /* outline: 1px dotted red; */
+  letter-spacing: 1px;
+  position: relative;
+
+}
+.editBtn{
+  background-color: white;
+  border: 2px solid black;
+  padding: 10px 20px;
+  color: black;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in-out;
+  font-weight: 600;
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+
+}
+.name-container h1:hover > button, .name-container h2:hover > button{
+  pointer-events: auto;
+  opacity: 1;
+  cursor: pointer;
+}
+.name-container h2:hover > button, .name-container h2 > button{
+  padding: 5px 10px;
+}
+.name-container h2{
+  position: relative;
+  font-family:"HK Grotesk", cursive;
+  font-weight: 400;
+  /* outline: 1px dotted blue; */
+  letter-spacing: -1px;
+  font-size: 1.5rem;
+}
+.about{
+  background-color: #858585;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2.5rem 2rem 0;
+  max-height: 225px;
+}
+.about h1{
+  font-size: 3rem;
+  font-family:"HK Grotesk", cursive;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: end;
+  height: 100%;
+  padding-left: 2.5rem;
+  white-space:nowrap;
+  position: relative;
+}
+.about h1::after{
+  position: absolute;
+  content: '';
+  width: 90%;
+  height: 5px;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+}
+.about p{
+  display: flex;
+  align-items: center;
+  min-height: 161px;
+  max-height: 161px;
+  overflow-y: scroll;
+  width: 100%;
+  color: white;
+  font-size: 1.1rem;
+}
+.main{
+  display: flex;
+  min-height: calc(100% - 491px);
+  outline: 1px dotted red;
+}
+.main-left{
+  min-width: calc(223px + 2.5rem);
+  padding-left: 2.5rem;
+  color: white;
+  background-color: black;
+  min-height: 100%;
+}
+.main-right{
+  width: 100%;
+}
+@media all and (max-width: 1000px){
+  .Cv{
+    min-width: 100%;
+  }
 }
