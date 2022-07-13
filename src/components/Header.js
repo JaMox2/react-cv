@@ -1,21 +1,33 @@
+import { useState } from 'react'
+import Edit from '../components/Edit'
 import pfpImg from '../imgs/placeHolderImg.png'
-import Edit from './Edit'
+
 
 export default function Header() {
+  let [pfp, setPfp] = useState(`${pfpImg}`)
+  let [isShowing, setIsShowing] =  useState(false)
+
+  function handleInput(e, title){
+    let elementChange = document.querySelector(`#${title}`)
+    console.log(elementChange.firstChild)
+    elementChange.firstChild.innerHTML = e
+  }
+
   return (
     <div className="header">
       <div className="img-container">
-        <img src={pfpImg} alt="pfp" />
+        <img src={pfp} alt="pfp" />
         <div className="img-Hover">
           <label htmlFor="avatar">
             Select Image
-            <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"/>
+            <input type="file" onChange={(e)=>setPfp(pfp = URL.createObjectURL(e.target.files[0]))} id="avatar" name="avatar" accept="image/png, image/jpeg"/>
           </label>
         </div>
       </div>
       <div className="name-container">
-        <h1>
-          Jeffrey Villamil
+        <Edit title='Name' type='text' handleInput={handleInput}/>
+        <h1 id='Name'>
+          <span>Jeffrey Villamil</span>
           <button className='editBtn' onClick={()=>console.log('click One')}>Edit</button>
         </h1>
         <h2>
